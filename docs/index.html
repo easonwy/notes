@@ -8,6 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-dark-mode@0.6.1/dist/style.css" />
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" />
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar-folder.min.css" />
 </head>
 <body>
   <div id="app"></div>
@@ -38,6 +41,7 @@
       subMaxLevel: 4, 
       // 小屏设备下合并导航栏到侧边栏
       mergeNavbar: true, 
+      auto2top: true,
       // 定义路由别名，可以更自由的定义路由规则。 支持正则
       alias: { 
         '/.*/_sidebar.md': '/_sidebar.md',//防止意外回退
@@ -56,14 +60,33 @@
         // 末尾的/是必要的
         EditOnGithubPlugin.create('https://github.com/easonwy/notes/blob/main/docs/')
       ],
+      pagination: {
+        previousText: '上一篇',
+        nextText: '下一篇',
+        crossChapter: true,
+        crossChapterText: true
+      },
+      darkMode: {
+        light: {
+          toggleBtnBg: '#42b983'
+        }
+      },
+      plugins: [
+        function (hook, vm) {
+          // parse twemoji
+          hook.doneEach(function() {
+              twemoji.parse(document);
+          });
+        },
+      ]
 
       // 谷歌分析
       // ga: 'UA-XXXXX-Y'
     }
   </script>
   <!-- Docsify v4 -->
-  <!--<script src="//cdn.jsdelivr.net/npm/docsify@4"></script>-->
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <!-- <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script> -->
 
   <!--代码高亮-->
   <script src="//unpkg.com/prismjs/components/prism-bash.js"></script>
@@ -77,12 +100,19 @@
   <!--一键拷贝代码-->
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
   <!--计数-->
-  <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+  <!-- <script src="//unpkg.com/docsify-count/dist/countable.js"></script> -->
   <!--表情-->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
   <!--图片放大-->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
   <!--  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/ga.min.js"></script>-->
+
+  <script src="//cdn.jsdelivr.net/npm/docsify-dark-mode@0.6.1/dist/index.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+
+  <script src="//cdn.jsdelivr.net/gh/TaQini/docsify-twemoji@master/twemoji.min.js"></script>
+
 
   <!-- 评论 -->
   <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
