@@ -1,4 +1,4 @@
-![logo](images/logo.png)
+![logo](https://cdn.jsdelivr.net/gh/easonwy/notes@main/docs/images/logo.png)
 
 # Eason's Notes
 
