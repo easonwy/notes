@@ -11,27 +11,54 @@
 </head>
 <body>
   <div id="app"></div>
+  <script src="//cdn.jsdelivr.net/npm/docsify-edit-on-github"></script>
   <script>
     window.$docsify = {
+      // 侧边栏顶部标题
       name: "Eason's Notes",
-      repo: 'https://gitee.com/ew5/hongzhi',
+      // 右上角github小部件链接
+      repo: 'https://github.com/easonwy/notes',
+      // 主页
       homepage: 'README.md',
+      // 自定义封面, _coverpage.md
       coverpage: true,
+      // 设置了自定义封面， 开启王总只进入封面（默认封面和首页是一页， 可以向下滑动)
       onlyCover: false,
+      // 导航栏, _navbar.md
       loadNavbar: true,
-      loadSidebar: true, // 加载自定义侧边栏
-      maxLevel: 2, // 默认情况下会抓取文档中所有标题渲染成目录，可配置最大支持渲染的标题层级。
-      subMaxLevel: 4, // 生成目录的最大层级
-      mergeNavbar: true, // 小屏设备下合并导航栏到侧边栏
-      alias: { // 定义路由别名，可以更自由的定义路由规则。 支持正则
+      // 404页面
+      // notFoundPage: '404.md',
+      // 是否隐藏侧边栏
+      // hideSideBar: true,
+      // 加载自定义侧边栏
+      loadSidebar: true, 
+      // 默认情况下会抓取文档中所有标题渲染成目录，可配置最大支持渲染的标题层级。
+      maxLevel: 2, 
+      // 生成目录的最大层级
+      subMaxLevel: 4, 
+      // 小屏设备下合并导航栏到侧边栏
+      mergeNavbar: true, 
+      // 定义路由别名，可以更自由的定义路由规则。 支持正则
+      alias: { 
         '/.*/_sidebar.md': '/_sidebar.md',//防止意外回退
         '/.*/_navbar.md': '/_navbar.md'
       },
+      // 全文搜索
       search: {
+        // （毫秒）过期时间一天
+        maxAge: 86400000,
         placeholder: '搜索',
         noData: '找不到结果!',
         depth: 3
-      }
+      },
+      // edit-on-github
+      plugins: [
+        // 末尾的/是必要的
+        EditOnGithubPlugin.create('https://github.com/easonwy/notes/blob/main/docs/')
+      ],
+
+      // 谷歌分析
+      // ga: 'UA-XXXXX-Y'
     }
   </script>
   <!-- Docsify v4 -->
@@ -43,11 +70,34 @@
   <script src="//unpkg.com/prismjs/components/prism-java.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-sql.js"></script>
 
-  <!--一键拷贝代码-->
-  <script src="//unpkg.com/docsify-copy-code"></script>
-
+  <!--搜索-->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   <script src="//polyfill.io/v3/polyfill.min.js?features=String.prototype.normalize"></script>
+
+  <!--一键拷贝代码-->
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
+  <!--计数-->
+  <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+  <!--表情-->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+  <!--图片放大-->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  <!--  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/ga.min.js"></script>-->
+
+  <!-- 评论 -->
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+  <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
+  <script>
+    const gitalk = new Gitalk({
+      clientID: '2e9677843c4746472164',
+      clientSecret: '7af6573bbab3cd4a94fd27dbf178d6c6c119a025',
+      repo: 'docsifyGuide',
+      owner: 'pycrab',
+      admin: ['pycrab'],
+      distractionFreeMode: true
+    })
+  </script> -->
 
 </body>
 </html>

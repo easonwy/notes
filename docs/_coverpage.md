@@ -2,4 +2,5 @@
 
 # Eason's Notes
 
-[Get Started](README.md)
+[项目地址](https://github.com/easonwy/notes)
+[开始阅读](README.md)
