@@ -1,4 +1,4 @@
-## 翼神笔记
+- https://github.com/fzankl/docsify-plugin-flexible-alerts
 
 > [!NOTE|style:flat]
 > An alert of type 'note' using global style 'callout'.
@@ -13,10 +13,8 @@
 > An alert of type 'tip' using alert specific style 'flat' which overrides global style 'callout'.
 > In addition, this alert uses an own heading and hides specific icon.
 
-> [!COMMENT]
-> An alert of type 'comment' using style 'callout' with default settings.
 
-
+- https://jhildenbiddle.github.io/docsify-tabs/#/
 
   <!-- tabs:start -->
 

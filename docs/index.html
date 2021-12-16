@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>翼神笔记</title>
@@ -11,7 +12,9 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-dark-mode@0.6.1/dist/style.css" />
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" />
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar-folder.min.css" />
+  <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
 </head>
+
 <body>
   <div id="app"></div>
   <script src="//cdn.jsdelivr.net/npm/docsify-edit-on-github"></script>
@@ -34,16 +37,16 @@
       // 是否隐藏侧边栏
       // hideSideBar: true,
       // 加载自定义侧边栏
-      loadSidebar: true, 
+      loadSidebar: true,
       // 默认情况下会抓取文档中所有标题渲染成目录，可配置最大支持渲染的标题层级。
-      maxLevel: 2, 
+      maxLevel: 2,
       // 生成目录的最大层级
-      subMaxLevel: 4, 
+      subMaxLevel: 4,
       // 小屏设备下合并导航栏到侧边栏
-      mergeNavbar: true, 
+      mergeNavbar: true,
       auto2top: true,
       // 定义路由别名，可以更自由的定义路由规则。 支持正则
-      alias: { 
+      alias: {
         '/.*/_sidebar.md': '/_sidebar.md',//防止意外回退
         '/.*/_navbar.md': '/_navbar.md'
       },
@@ -71,13 +74,69 @@
           toggleBtnBg: '#42b983'
         }
       },
+      'flexible-alerts': {
+        note: {
+          label: "Hinweis"
+        },
+        tip: {
+          label: "Tipp"
+        },
+        warning: {
+          label: "Warnung"
+        },
+        attention: {
+          label: "Achtung"
+        },
+        comment: {
+          label: 'Comment',
+
+          // localization
+          label: {
+            '/en-GB/': 'Comment',
+            '/': 'Kommentar'
+          },
+
+          // Assuming that we use Font Awesome
+          icon: 'fas fa-comment',
+          className: 'note'
+        }
+      },
+      tabs: {
+        persist: true,      // default
+        sync: true,      // default
+        theme: 'classic', // default
+        tabComments: true,      // default
+        tabHeadings: true       // default
+      },
       plugins: [
         function (hook, vm) {
           // parse twemoji
-          hook.doneEach(function() {
-              twemoji.parse(document);
+          hook.doneEach(function () {
+            twemoji.parse(document);
           });
         },
+        function (hook) {
+          var footer = [
+            '<hr/>',
+            '<footer style="text-align: center">',
+            '<p>',
+            '<img src="https://cdn.jsdelivr.net/gh/easonwy/notes@main/docs/images/logo.png" alt="r2coding" >',
+            '</p>',
+            '<p>',
+            'Copyright © 2021 <span><a href="https://mp.weixin.qq.com/s/ePhaYezFblgt0NgbvtWqww" style="font-size:80%;color:blue;" target="_blank">翼神</a></span> , All rights reserved.',
+            '</p>',
+            '</footer>'
+          ].join('');
+          hook.afterEach(function (html) {
+            var isReadme = window.location.href.indexOf("README");
+            if (isReadme === -1) {
+              // return header + html + footer;
+              return html + footer;
+            } else {
+              return html + footer;
+            }
+          });
+        }
       ]
 
       // 谷歌分析
@@ -86,7 +145,6 @@
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-  <!-- <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script> -->
 
   <!--代码高亮-->
   <script src="//unpkg.com/prismjs/components/prism-bash.js"></script>
@@ -109,25 +167,15 @@
 
   <script src="//cdn.jsdelivr.net/npm/docsify-dark-mode@0.6.1/dist/index.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
-	<script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
 
   <script src="//cdn.jsdelivr.net/gh/TaQini/docsify-twemoji@master/twemoji.min.js"></script>
 
+  <!-- Flexible Alerts -->
+  <script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
 
-  <!-- 评论 -->
-  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
-  <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
-  <script>
-    const gitalk = new Gitalk({
-      clientID: '2e9677843c4746472164',
-      clientSecret: '7af6573bbab3cd4a94fd27dbf178d6c6c119a025',
-      repo: 'docsifyGuide',
-      owner: 'pycrab',
-      admin: ['pycrab'],
-      distractionFreeMode: true
-    })
-  </script> -->
-
+  <!-- docsify-tabs (latest v1.x.x) -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
 </body>
+
 </html>

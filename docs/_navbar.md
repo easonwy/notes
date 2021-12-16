@@ -1,6 +1,9 @@
 * 开发工具
+    * [在线工具集合](https://tool.lu/)
     * [在线Cron表达式](https://cron.qqe2.com/)
     * [base64在线解码编码](http://base64.xpcha.com/)
+    * [JSON格式化](https://www.sojson.com/)
+    * [Nginx在线配置](https://www.digitalocean.com/community/tools/nginx?global.app.lang=zhCN)
 
 * 非开发工具
     * [后台管理]()
