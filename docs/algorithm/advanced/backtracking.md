@@ -1,7 +1,3 @@
-# Title
+# Backtracking
 
-## Overview
-
-## Contents
-
-## References
+This section covers the backtracking algorithm.
